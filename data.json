@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "brand": "ORC",
+    "ml": "180ml",
+    "ob": 120,
+    "received": 25,
+    "sale": 10,
+    "rate": 130
+  },
+  {
+    "id": 2,
+    "brand": "BP",
+    "ml": "180ml",
+    "ob": 25,
+    "received": 0,
+    "sale": 25,
+    "rate": 80
+  }
+]
