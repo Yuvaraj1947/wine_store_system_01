@@ -15,43 +15,32 @@
       --success: #4ade80;
       --danger: #f87171;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
     body { background-color: var(--bg-main); color: var(--text-main); padding: 2rem; }
-    
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
     h1 { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
     #live-clock { font-family: monospace; font-size: 1.1rem; color: var(--text-muted); }
-
     .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
     .metric-card { background: var(--bg-card); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); }
     .metric-card p { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
     .metric-card h3 { font-size: 1.75rem; font-weight: 600; }
-
     .layout-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 1.5rem; align-items: start; }
     @media (max-width: 1024px) { .layout-grid { grid-template-columns: 1fr; } }
-
     .panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
     .panel-title { font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-
     .table-responsive { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
     th, td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); }
     th { color: var(--text-muted); font-weight: 500; text-transform: uppercase; font-size: 0.75rem; }
-
     .form-group { margin-bottom: 1rem; }
     .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
     .form-control { width: 100%; background: var(--bg-main); border: 1px solid var(--border); color: #fff; padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.9rem; }
-    .form-control:focus { outline: 1px solid var(--accent); }
-
     .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-    .btn { background: var(--accent); color: var(--bg-main); border: none; padding: 0.6rem 1rem; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 0.85rem; transition: opacity 0.2s; }
-    .btn:hover { opacity: 0.9; }
+    .btn { background: var(--accent); color: var(--bg-main); border: none; padding: 0.6rem 1rem; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 0.85rem; }
     .btn-secondary { background: var(--border); color: var(--text-main); }
     .btn-danger-sm { background: transparent; border: 1px solid var(--danger); color: var(--danger); padding: 0.25rem 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.75rem; }
     .btn-danger-sm:hover { background: var(--danger); color: #fff; }
-
-    .toast { position: fixed; bottom: 2rem; right: 2rem; padding: 1rem 1.5rem; border-radius: 6px; background: #22c55e; color: #fff; font-weight: 500; font-size: 0.9rem; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; pointer-events: none; z-index: 1000; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+    .toast { position: fixed; bottom: 2rem; right: 2rem; padding: 1rem 1.5rem; border-radius: 6px; background: #22c55e; color: #fff; font-weight: 500; font-size: 0.9rem; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; pointer-events: none; z-index: 1000; }
     .toast.show { opacity: 1; transform: translateY(0); }
     .toast.danger { background: var(--danger); }
   </style>
@@ -61,7 +50,7 @@
   <header>
     <div>
       <h1>Wine Shop Inventory Management</h1>
-      <p style="color: var(--text-muted); font-size: 0.85rem;">Live Server Synchronized Matrix Platform</p>
+      <p style="color: var(--text-muted); font-size: 0.85rem;">Serverless Local Storage Production Build</p>
     </div>
     <div id="live-clock">00:00:00 PM</div>
   </header>
@@ -96,8 +85,7 @@
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody id="inventory-table-body">
-              </tbody>
+            <tbody id="inventory-table-body"></tbody>
           </table>
         </div>
       </div>
@@ -112,11 +100,25 @@
         </div>
         <div class="form-group">
           <label>Transaction Quantity</label>
-          <input type="number" id="action-quantity" class="form-control" placeholder="Enter absolute integer value...">
+          <input type="number" id="action-quantity" class="form-control" placeholder="Enter quantity...">
         </div>
         <div class="btn-group">
-          <button class="btn" style="background-color: var(--accent);" onclick="handleStockTransaction('received')">Inward (+) </button>
+          <button class="btn" style="background-color: var(--accent);" onclick="handleStockTransaction('received')">Inward (+)</button>
           <button class="btn" style="background-color: var(--success); color: var(--bg-main)" onclick="handleStockTransaction('sale')">Sale (-)</button>
+        </div>
+      </div>
+
+      <div class="panel" style="border-color: var(--success);">
+        <h3 class="panel-title" style="color: var(--success); border-bottom-color: var(--success);">End of Day Closing Operations</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Saves a historical data summary directly inside your web browser.
+        </p>
+        <button class="btn" style="background-color: var(--success); color: var(--bg-main); width: 100%;" onclick="executeDayClosingReport()">
+          Generate & Save Status Report
+        </button>
+        <div id="historical-summary-box" style="margin-top: 1rem; font-size: 0.85rem; display: none;">
+          <p style="font-weight: 600; color: var(--accent); margin-bottom: 0.25rem;">Last Status Log Saved:</p>
+          <div id="report-quick-stats" style="background: var(--bg-main); padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);"></div>
         </div>
       </div>
 
@@ -124,7 +126,7 @@
         <h3 class="panel-title">Register New Product Brand</h3>
         <div class="form-group">
           <label>Descriptor Brand Name</label>
-          <input type="text" id="nb-name" class="form-control" placeholder="e.g. Sula Shiraz Cabernet">
+          <input type="text" id="nb-name" class="form-control" placeholder="e.g. Sula Shiraz">
         </div>
         <div class="form-group">
           <label>Packaging Volume Profile</label>
@@ -147,66 +149,32 @@
       </div>
     </div>
   </div>
-  <!-- <div class="panel" style="border-color: var(--success);">
-  <h3 class="panel-title" style="color: var(--success); border-bottom-color: var(--success);">End of Day Closing Operations</h3>
-  <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
-    Locking the balance compiles data arrays, calculates daily profits, and snapshots closing indexes.
-  </p>
-  <button class="btn" style="background-color: var(--success); color: var(--bg-main); width: 100%;" onclick="executeDayClosingReport()">
-    Generate & Save Status Report
-  </button>
-  
-  <div id="historical-summary-box" style="margin-top: 1rem; font-size: 0.85rem; display: none;">
-    <p style="font-weight: 600; color: var(--accent); margin-bottom: 0.25rem;">Last Status Log Summary Saved:</p>
-    <div id="report-quick-stats" style="background: var(--bg-main); padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border);"></div>
-  </div>
-</div> -->
 
   <div id="toast" class="toast"></div>
 
   <script>
-    // State Tracking runtime container instance
+    const STORAGE_KEY = 'v_wine_shop_inventory';
+    const REPORTS_KEY = 'v_wine_shop_reports';
     let state = { brands: [] };
 
-    // Core Native HTTP Native Asynchronous Middleware Client 
-    async function api(method, url, data = null) {
-      const options = {
-        method: method,
-        headers: { 'Content-Type': 'application/json' }
-      };
-      if (data) options.body = JSON.stringify(data);
+    function getStoredData() { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    function setStoredData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+    function getStoredReports() { return JSON.parse(localStorage.getItem(REPORTS_KEY)) || []; }
+    function setStoredReports(data) { localStorage.setItem(REPORTS_KEY, JSON.stringify(data)); }
 
-      const response = await fetch(url, options);
-      if (!response.ok) {
-        const errDetails = await response.json().catch(() => ({}));
-        throw new Error(errDetails.error || `HTTP Network Protocol error: ${response.status}`);
-      }
-      return await response.json();
-    }
-
-    // Mathematical Deductions Formulas
     const total = b => (parseInt(b.ob) || 0) + (parseInt(b.received) || 0);
     const cb = b => total(b) - (parseInt(b.sale) || 0);
     const amount = b => (parseInt(b.sale) || 0) * (parseFloat(b.rate) || 0);
 
-    // Modernized UI Pipeline Redraw Engine
     function render() {
       const tbody = document.getElementById('inventory-table-body');
       const selector = document.getElementById('brand-selector');
-      
-      tbody.innerHTML = '';
-      selector.innerHTML = '';
-
-      let aggregateValuation = 0;
-      let aggregateSalesCount = 0;
+      tbody.innerHTML = ''; selector.innerHTML = '';
+      let aggregateValuation = 0, aggregateSalesCount = 0;
 
       state.brands.forEach(b => {
-        const itemTotal = total(b);
-        const itemCB = cb(b);
-        const itemAmount = amount(b);
-
-        aggregateValuation += itemAmount;
-        aggregateSalesCount += (parseInt(b.sale) || 0);
+        const itemTotal = total(b), itemCB = cb(b), itemAmount = amount(b);
+        aggregateValuation += itemAmount; aggregateSalesCount += (parseInt(b.sale) || 0);
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -219,120 +187,104 @@
           <td style="color: var(--success); font-weight: 500;">${b.sale || 0}</td>
           <td style="font-weight: 600; color: ${itemCB < 5 ? 'var(--danger)' : 'var(--text-main)'};">${itemCB}</td>
           <td>₹${parseFloat(b.rate).toFixed(2)}</td>
-          <td style="font-weight: 600; color: var(--accent);">₹${itemAmount.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          <td style="font-weight: 600; color: var(--accent);">₹${itemAmount.toLocaleString('en-IN', {minimumFractionDigits: 2})}</td>
           <td><button class="btn btn-danger-sm" onclick="deleteBrand(${b.id})">Remove</button></td>
         `;
         tbody.appendChild(tr);
 
         const option = document.createElement('option');
-        option.value = b.id;
-        option.textContent = `${b.brand} (${b.ml})`;
+        option.value = b.id; option.textContent = `${b.brand} (${b.ml})`;
         selector.appendChild(option);
       });
 
-      document.getElementById('metric-valuation').textContent = `₹${aggregateValuation.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('metric-valuation').textContent = `₹${aggregateValuation.toLocaleString('en-IN', {minimumFractionDigits: 2})}`;
       document.getElementById('metric-sales').textContent = `${aggregateSalesCount} btls`;
       document.getElementById('metric-brands').textContent = state.brands.length;
     }
 
-    // Business Logic Orchestration Actions
-    async function handleStockTransaction(type) {
+    function handleStockTransaction(type) {
       const id = document.getElementById('brand-selector').value;
       const qty = parseInt(document.getElementById('action-quantity').value);
-      if (!id || !qty || qty <= 0) return toast('Please configure a valid asset entry target & quantity.', 'danger');
-
+      if (!id || !qty || qty <= 0) return toast('Please configure a valid quantity.', 'danger');
       const target = state.brands.find(b => b.id == id);
       if (!target) return;
 
-      const payload = { ...target };
-      if (type === 'received') {
-        payload.received = (parseInt(payload.received) || 0) + qty;
-      } else if (type === 'sale') {
-        if (cb(target) - qty < 0) return toast('Operation stopped: Sale quantity surpasses standard current storage assets.', 'danger');
-        payload.sale = (parseInt(payload.sale) || 0) + qty;
+      if (type === 'received') { target.received = (parseInt(target.received) || 0) + qty; }
+      else if (type === 'sale') {
+        if (cb(target) - qty < 0) return toast('Sale quantity surpasses stock.', 'danger');
+        target.sale = (parseInt(target.sale) || 0) + qty;
       }
-
-      try {
-        const updated = await api('PUT', `/api/brands/${id}`, payload);
-        const index = state.brands.findIndex(b => b.id == id);
-        state.brands[index] = updated;
-        
-        render();
-        document.getElementById('action-quantity').value = '';
-        toast('Inventory Transaction processed successfully.', 'success');
-      } catch (err) {
-        toast('Failed to commit tracking transaction changes.', 'danger');
-      }
+      setStoredData(state.brands); render();
+      document.getElementById('action-quantity').value = '';
+      toast('Transaction processed successfully.', 'success');
     }
 
-    async function saveNewBrand() {
+    function saveNewBrand() {
       const brand = document.getElementById('nb-name').value.trim();
       const ml = document.getElementById('nb-ml').value;
       const ob = parseInt(document.getElementById('nb-ob').value) || 0;
       const rate = parseFloat(document.getElementById('nb-rate').value) || 0;
+      if (!brand) return toast('Missing brand name values.', 'danger');
 
-      if (!brand) return toast('Missing unique descriptor name values.', 'danger');
-
-      try {
-        const newlyCreated = await api('POST', '/api/brands', { brand, ml, ob, received: 0, sale: 0, rate });
-        state.brands.push(newlyCreated);
-        
-        render();
-        document.getElementById('nb-name').value = '';
-        document.getElementById('nb-ob').value = 0;
-        document.getElementById('nb-rate').value = 0;
-        toast('Brand successfully registered into system.', 'success');
-      } catch (err) {
-        toast('Failed to save new brand tracking node.', 'danger');
-      }
+      state.brands.push({ id: state.brands.length > 0 ? Math.max(...state.brands.map(b => b.id)) + 1 : 1, brand, ml, ob, received: 0, sale: 0, rate });
+      setStoredData(state.brands); render();
+      document.getElementById('nb-name').value = '';
+      document.getElementById('nb-ob').value = 0; document.getElementById('nb-rate').value = 0;
+      toast('Brand registered successfully.', 'success');
     }
 
-    async function deleteBrand(id) {
-      if (!confirm('Are you absolutely certain you wish to wipe this cataloged brand trace entry?')) return;
-      try {
-        await api('DELETE', `/api/brands/${id}`);
-        state.brands = state.brands.filter(b => b.id !== id);
-        render();
-        toast('Asset matrix cleared from databank.', 'success');
-      } catch (err) {
-        toast('Failed to destroy backend index catalog row target.', 'danger');
+    function deleteBrand(id) {
+      if (!confirm('Are you sure you want to delete this brand?')) return;
+      state.brands = state.brands.filter(b => b.id !== id);
+      setStoredData(state.brands); render();
+      toast('Asset cleared.', 'success');
+    }
+
+    function executeDayClosingReport() {
+      if (state.brands.length === 0) return toast('No data matrix available.', 'danger');
+      let rev = 0, sold = 0;
+      state.brands.forEach(b => { rev += amount(b); sold += (parseInt(b.sale) || 0); });
+      const reports = getStoredReports();
+      const d = new Date().toISOString().split('T')[0];
+      const nr = { date: d, revenue: rev, bottles: sold };
+      const idx = reports.findIndex(r => r.date === d);
+      if (idx !== -1) reports[idx] = nr; else reports.push(nr);
+      setStoredReports(reports); toast('Report logged successfully!', 'success');
+      loadHistoricalSummaryLog();
+    }
+
+    function loadHistoricalSummaryLog() {
+      const reports = getStoredReports();
+      if (reports.length > 0) {
+        const latest = reports[reports.length - 1];
+        const statsBox = document.getElementById('historical-summary-box');
+        statsBox.style.display = 'block';
+        document.getElementById('report-quick-stats').innerHTML = `
+          <strong>Date:</strong> ${latest.date}<br>
+          <strong>Revenue:</strong> ₹${latest.revenue.toLocaleString('en-IN')}<br>
+          <strong>Sales:</strong> ${latest.bottles} btls
+        `;
       }
     }
 
     function exportCSV() {
-      if (state.brands.length === 0) return toast('No data records available to compile report profiles.', 'danger');
-      const headerLine = '#,Brand Item,Size,OB,Received,Total,Sale,CB,Rate,Calculated Gross Amount\n';
-      const parsedRows = state.brands.map(b => `${b.id},"${b.brand.replace(/"/g, '""')}",${b.ml},${b.ob},${b.received},${total(b)},${b.sale},${cb(b)},${b.rate},${amount(b)}`).join('\n');
-      const blob = new Blob([headerLine + parsedRows], { type: 'text/csv;charset=utf-8;' });
-      const temporaryLink = document.createElement('a');
-      temporaryLink.href = URL.createObjectURL(blob);
-      temporaryLink.download = `Stock_Report_${new Date().toISOString().split('T')[0]}.csv`;
-      temporaryLink.click();
+      if (state.brands.length === 0) return toast('No records available.', 'danger');
+      const headerLine = '#,Brand Item,Size,OB,Received,Total,Sale,CB,Rate,Gross Amount\n';
+      const parsedRows = state.brands.map(b => `${b.id},"${b.brand}",${b.ml},${b.ob},${b.received},${total(b)},${b.sale},${cb(b)},${b.rate},${amount(b)}`).join('\n');
+      const blob = new Blob([headerLine + parsedRows], { type: 'text/csv' });
+      const link = document.createElement('a'); link.href = URL.createObjectURL(blob);
+      link.download = `Stock_Report_${new Date().toISOString().split('T')[0]}.csv`; link.click();
     }
 
     function toast(msg, type = '') {
-      const el = document.getElementById('toast');
-      el.textContent = msg;
-      el.className = `toast show ${type}`;
+      const el = document.getElementById('toast'); el.textContent = msg; el.className = `toast show ${type}`;
       setTimeout(() => el.classList.remove('show'), 4000);
     }
+    function tick() { document.getElementById('live-clock').textContent = new Date().toLocaleTimeString('en-US', { hour12: true }); }
 
-    function tick() {
-      const dates = new Date();
-      document.getElementById('live-clock').textContent = dates.toLocaleTimeString('en-US', { hour12: true });
-    }
-
-    // Modern lifecycle listener hooks setup routines
-    window.addEventListener('DOMContentLoaded', async () => {
-      setInterval(tick, 1000);
-      tick();
-      try {
-        state.brands = await api('GET', '/api/brands');
-        render();
-      } catch(e) {
-        toast('Critical error connecting to Node backend server data logs.', 'danger');
-        console.error("Initialization Matrix fault recovery execution required.", e);
-      }
+    window.addEventListener('DOMContentLoaded', () => {
+      setInterval(tick, 1000); tick();
+      state.brands = getStoredData(); render(); loadHistoricalSummaryLog();
     });
   </script>
 </body>
